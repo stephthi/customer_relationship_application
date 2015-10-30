@@ -57,9 +57,14 @@ end
 		contact = Contact.create(first_name, last_name, email: email, notes: notes)
 	end
 
+	def modify_contact
+		print_all
+	end
+
 	def print_all
-		self.each do |contact|
-			puts "#{contact.first_name} #{contact.last_name} has been added."
+		puts "Your contact list includes:"
+			Contact.all.each do |contact|
+				puts "#{contact.id} #{contact.first_name} #{contact.last_name}"
 	end
 end
 end
