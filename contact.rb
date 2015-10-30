@@ -40,7 +40,7 @@ class	Contact
 		# new_contact.id = @@id
 		# @@id += 1
 		@@contacts << new_contact
-		puts "Contact added at #{@@id-1}."
+		puts "#{first_name} #{last_name} has been added at #{new_contact.id}."
 	end
 # attr_accessor creates these methods
 	# def first_name
