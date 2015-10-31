@@ -59,20 +59,17 @@ end
 end
 
 	def modify_contact
-		print_all
-		puts "Which contact would you like to modify? Please select their number."
+		puts "Which contact would you like to modify? Please enter their ID number."
 		contact_choice = gets.chomp
 		puts "Are you sure you'd like to modify #{contact_choice}? Please enter yes or no."
 		confirm_choice = gets.chomp
-		until confirm_choice == "yes" || "no"
-			puts "Error. Please enter yes or no."
-			confirm_choice_two = gets.chomp
-	end
-		if confirm_choice_two == "yes"
+		if confirm_choice == "yes"
 			puts "Select the number you'd like to modify: [1] First Name, [2] Last Name, [3] Email or [4] Notes."
 			modify_choice = gets.chomp
+		elsif confirm_choice == "no"
+			puts "The contact selected has not been modified."
 		else
-			modify_contact
+			puts "Sorry, that command does not work."
 		end
 	end
 
@@ -86,8 +83,8 @@ end
 	def display_contact
 		puts "Please enter the ID of the person you'd like to view."
 		id = gets.chomp.to_i
-		Contact.id.each do |contact|
-			puts "#{first_name} #{last_name}, #{email}, #{notes}"
+		Contact.each do |id|
+			puts "[#{contact.id}] #{contact.first_name} #{contact.last_name}, #{contact.email}, #{contact.notes}"
 	end
 end
 
