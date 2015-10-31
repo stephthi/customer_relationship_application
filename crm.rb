@@ -67,7 +67,7 @@ end
 		until confirm_choice == "yes" || "no"
 			puts "Error. Please enter yes or no."
 			confirm_choice_two = gets.chomp
-		end
+	end
 		if confirm_choice_two == "yes"
 			puts "Select the number you'd like to modify: [1] First Name, [2] Last Name, [3] Email or [4] Notes."
 			modify_choice = gets.chomp
