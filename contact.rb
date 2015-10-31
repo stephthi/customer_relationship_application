@@ -58,4 +58,8 @@ class	Contact
 	def full_name
 		"#{first_name} #{last_name}"
 	end
+
+	def print_ids
+		puts "ID: #{@id}, First Name: #{@first_name}, Last Name: #{@last_name}, Email: #{@email}, Notes: #{@notes}."
+	end
 end

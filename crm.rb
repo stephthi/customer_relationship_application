@@ -56,18 +56,33 @@ end
 
 		contact = Contact.create(first_name, last_name, email: email, notes: notes)
 	end
+end
 
 	def modify_contact
 		print_all
+		puts "Which contact would you like to modify? Please select their number."
+		contact_choice = gets.chomp
+		puts "Are you sure you'd like to modify #{contact_choice}? Please enter yes or no."
+		confirm_choice = gets.chomp
+		until confirm_choice == "yes" || "no"
+			puts "Error. Please enter yes or no."
+			confirm_choice_two = gets.chomp
+		end
+		if confirm_choice_two == "yes"
+			puts "Select the number you'd like to modify: [1] First Name, [2] Last Name, [3] Email or [4] Notes."
+			modify_choice = gets.chomp
+		else
+			modify_contact
+		end
 	end
 
-	def print_all
+	def display_all_contacts
 		puts "Your contact list includes:"
 			Contact.all.each do |contact|
-				puts "#{contact.id} #{contact.first_name} #{contact.last_name}"
+				puts "[#{contact.id}] #{contact.first_name} #{contact.last_name}"
 	end
 end
-end
+
 
 
 my_crm = CRM.new('Bitmaker CRM')
