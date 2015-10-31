@@ -83,6 +83,14 @@ end
 	end
 end
 
+	def display_contact
+		puts "Please enter the ID of the person you'd like to view."
+		id = gets.chomp.to_i
+		Contact.id.each do |contact|
+			puts "#{first_name} #{last_name}, #{email}, #{notes}"
+	end
+end
+
 
 
 my_crm = CRM.new('Bitmaker CRM')
