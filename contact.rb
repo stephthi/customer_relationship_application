@@ -63,6 +63,14 @@ class	Contact
 		end
 	end
 
+	def self.delete_contact_id
+		puts "Enter the ID that you would like to delete."
+		id_num = gets.chomp
+		if id_num == @id
+			Contact.delete_all(id_num)
+		end
+	end
+
 	def full_name
 		"#{first_name} #{last_name}"
 	end

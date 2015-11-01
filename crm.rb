@@ -109,12 +109,16 @@ end
 	# 	puts "You have deleted ID #{id_delete}"
 	# end
 
+	# def delete_contact
+	# 	puts "Enter the ID that you would like to delete."
+	# 	id_num = gets.chomp.to_i
+	# 	@contacts.delete_if do |contact|
+	# 		contact.id == id_num
+	# 	end
+	# end
+
 	def delete_contact
-		puts "Enter the ID that you would like to delete."
-		id_num = gets.to_i
-		@contacts.delete_if do |contact|
-			contact.id == id_num
-		end
+		Contact.delete_contact_id
 	end
 
 my_crm = CRM.new('Bitmaker CRM')
