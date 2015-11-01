@@ -55,6 +55,14 @@ class	Contact
 		@@contacts
 	end
 
+	def self.find(id)
+		@@contacts.each do |contact|
+			if contact.id == id
+				return contact
+			end
+		end
+	end
+
 	def full_name
 		"#{first_name} #{last_name}"
 	end
