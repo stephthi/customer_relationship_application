@@ -97,7 +97,7 @@ end
 	def delete_contact
 		puts "Enter the ID that you would like to delete."
 		id_delete = gets.chomp.to_i
-		Contact.delete(id_delete)
+		Contact.destroy(id_delete)
 		puts "You have deleted ID #{id_delete}"
 	end
 
