@@ -60,7 +60,8 @@ end
 
 	def modify_contact
 		puts "Which contact would you like to modify? Please enter their ID number."
-		contact_choice = gets.chomp
+		contact_choice = gets.chomp.to_i
+		contact = Contact.find(contact_choice)
 		puts "Are you sure you'd like to modify #{contact_choice}? Please enter yes or no."
 		confirm_choice = gets.chomp
 		if confirm_choice == "yes"
@@ -86,22 +87,35 @@ end
 	end
 end
 
+# 	def display_contact
+# 		puts "Please enter the ID of the person you'd like to view."
+# 		id = gets.chomp.to_i
+# 		Contact.each do |id|
+# 			puts "[#{contact.id}] #{contact.first_name} #{contact.last_name}, #{contact.email}, #{contact.notes}"
+# 	end
+# end
+
 	def display_contact
 		puts "Please enter the ID of the person you'd like to view."
-		id = gets.chomp.to_i
-		Contact.each do |id|
-			puts "[#{contact.id}] #{contact.first_name} #{contact.last_name}, #{contact.email}, #{contact.notes}"
+		id_num = gets.chomp.to_i
+		Contact.id.include?(id_num)
+		return contact
 	end
-end
+
+	# def delete_contact
+	# 	puts "Enter the ID that you would like to delete."
+	# 	id_delete = gets.chomp.to_i
+	# 	Contact.destroy(id_delete)
+	# 	puts "You have deleted ID #{id_delete}"
+	# end
 
 	def delete_contact
 		puts "Enter the ID that you would like to delete."
-		id_delete = gets.chomp.to_i
-		Contact.destroy(id_delete)
-		puts "You have deleted ID #{id_delete}"
+		id_num = gets.to_i
+		@contacts.delete_if do |contact|
+			contact.id == id_num
+		end
 	end
-
-
 
 my_crm = CRM.new('Bitmaker CRM')
 my_crm.main_menu
