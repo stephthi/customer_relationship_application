@@ -118,7 +118,7 @@ end
 	# end
 
 	def delete_contact
-		Contact.delete_contact_id
+		Contact.delete_contact
 	end
 
 my_crm = CRM.new('Bitmaker CRM')
