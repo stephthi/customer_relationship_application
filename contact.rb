@@ -63,20 +63,34 @@ class	Contact
 		end
 	end
 
-	def self.delete_contact
-		puts "Enter the ID that you would like to delete."
-		id = gets.chomp
-		self.all.each do |contact|
-		if id.to_i == contact.id
-		@@contacts.delete_at(@@contacts.index(contact))
-	end
-end
-end
 	def full_name
 		"#{first_name} #{last_name}"
 	end
 
-	def print_ids
-		puts "ID: #{@id}, First Name: #{@first_name}, Last Name: #{@last_name}, Email: #{@email}, Notes: #{@notes}."
 	end
+	def self.delete_contact(id)
+		self.all.each do |contact|
+      if id.to_i == contact.id
+        @@contacts.delete_at(@@contacts.index(contact))
+      end
+    end
+  end
+
+  def self.display_element(element)
+    case element
+    when "firstname"
+      @@contacts.each do |contact|
+        puts "#{contact.id}: #{contact.first_name}"
+      end
+    when "lastname"
+      @@contacts.each do |contact|
+        puts "#{contact.id}: #{contact.last_name}"
+      end
+    when "email"
+      @@contacts.each do |contact|
+        puts "#{contact.id}: #{contact.email}"
+      end
+    end
+
+  end
 end
